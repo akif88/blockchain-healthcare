@@ -1,0 +1,79 @@
+{% extends 'index.html' %}
+{% block navbar %}
+    <li class="nav-item "><a class="nav-link" href="/">Home</a></li>
+    <li class="nav-item mx-5"><h3 class="text-white">Welcome {{ name }}</h3></li>
+    <li class="nav-item "><a class="nav-link" href="/logout">Sign Out</a></li>
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+            <div class="mt-5 mb-5 mx-auto">
+                <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#collapseForm"
+                    aria-expanded="false" aria-controls="collapseForm">Add Patient</button>
+
+            </div>
+
+            <div class="w-50 mt-5 mx-auto collapse" id="collapseForm"> <!-- mx-auto => horizontal center -->
+                <form method="post">
+                  <div class="form-group text-center">
+                        <h1 class="mb-4">Patient Sign up</h1>
+                  </div>
+                  <div class="form-group">
+                        <input type="text" class="form-control " id="username" name="username" aria-describedby="userIDHelp"
+                               placeholder="User ID" required>
+                  </div>
+                  <div class="form-group">
+                        <input type="password" class="form-control" id="password" name="password"
+                               placeholder="Password" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary" value="signup">Sign up</button>
+                </form>
+            </div>
+
+            <div class="mt-5 mx-auto">
+                <form name="patient-note" method="post">
+                    <div class="form-group text-center">
+                        <h2 class="mt-5 ">Patient Note </h2>
+                    </div>
+                    <div class="form-group">
+                        <label for="FormControlSelectPatient">Patient Select</label>
+                        <select class="form-control" id="FormControlSelectPatient">
+                            {% for item in patientname %}
+                                <option>{{ item[0] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" value="view">view</button>
+                    </div>
+                    <div class="form-group">
+                        <textarea type="text" readonly class="form-control " id="p-note" name="p-note" aria-describedby="userPNote"
+                                  rows="7">Patient Healthcare Record</textarea>
+                    </div>
+                </form>
+            </div>
+
+            <div class="mt-5 mx-auto">
+                <form name="patient-record" method="post">
+                    <div class="form-group text-center">
+                        <h2 class="mt-5 mb-4 ">Patient Record</h2>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control " id="title" name="title" aria-describedby="userTitle"
+                               placeholder="Title" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea type="text" class="form-control " id="note" name="note" aria-describedby="userNote"
+                                  placeholder="Note for Patient" rows="7"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <textarea type="text" class="form-control " id="p-note" name="p-note" aria-describedby="userPNote"
+                                  placeholder="Note for Provider" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" value="save">Save</button>
+                </form>
+            </div>
+
+
+     </div>
+{% endblock %}

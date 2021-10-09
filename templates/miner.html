@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% block navbar %}
+    <li class="nav-item "><a class="nav-link" href="/">Home</a></li>
+    <li class="nav-item mx-5"><h3 class="text-white">Welcome {{ name }}</h3></li>
+    <li class="nav-item float-right"><a class="nav-link" href="/logout">Sign Out</a></li>
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+            <div class="w-50 mt-5 mx-auto"> <!-- mx-auto => horizontal center -->
+                <form name="signup" method="post">
+                  <div class="form-group text-center">
+                        <h1 class="mb-4">Miner</h1>
+                  </div>
+                    <div class="form-group">
+                        <label for="FormControlSelectPatient">Earn: 0 </label>
+
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" value="mine">Mine</button>
+                    </div>
+                </form>
+            </div>
+    </div>
+{% endblock %}

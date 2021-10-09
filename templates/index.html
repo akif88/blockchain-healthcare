@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>Healthcare Blockchain System</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+        <!-- Bootstrap CSS file -->
+        <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+        <!--
+            <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        -->
+
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+            <a class="navbar-brand text-danger" href="/"><h2>Healthcare System</h2></a>
+
+            <!-- button for mobile -->
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                    aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    {% block navbar %}
+                        <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item "><a class="nav-link" href="/login/patient">Patient</a></li>
+                        <li class="nav-item "><a class="nav-link" href="/login/provider">Provider</a></li>
+                        <li class="nav-item "><a class="nav-link" href="/login/miner">Miner</a></li>
+                    {% endblock %}
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main">
+            <div class="jumbotron bg-white">
+
+                    {% block content %}
+                        <div class="container mt-5">
+                            <h1 class="display-4 text-danger text-center ">Healthcare Blockchain System</h1>
+
+                            <p class="lead">The crucial point of the health care system we have been providing is the
+                            privacy and integrity of patient records.</p>
+                            <p> It is also necessary for data scientists
+                            who wish to make inferences about any disease using patient records to have
+                            anonymous access to these data. To achieve this we use blockchain technology.
+                            Blockchain is a linked list or distributed database that uses cryptography. The
+                            initial aim of the blockchain is to make digital money transfers between two
+                            people securely and openly without a third authority. Everyone who participates
+                            in the system can see clearly what actions they have done. In the health care
+                            system, information about what kind of procedures patients are going to and
+                            which hospital they are going to be kept. It is also important to design a system
+                            that allows the patient to see only the patient's information, such as the medical
+                            information and which doctor is being treated, as well as the third party that the
+                            patient and the patient are allowed to see. The treating doctor can determine
+                            what information the patient wants to share. This is to prevent someone else
+                            from seeing their personal notes that the doctor does not want to share.</p>
+                            <h2>MedRec</h2>
+                            <p>MedRec is a healthcare blockchain application on which we base. Medrec
+                            application MIT Media Lab. was first developed by researchers in 2016 and
+                            white paper was published.
+                            There are three main elements in MedRec. These are patient, provider
+                            and medical stakeholder (researcher, public health authorities, etc.). Patients
+                            have a comprehensive and unchanging record and easy access to providers.
+                            Providers can integrate with existing local databases. Medical stakeholders are
+                            encouraged to join the blockchain network as miners. They are given collective
+                            and anonymous data as a reward.</p>
+
+                        </div>
+                    {% endblock %}
+
+            </div>
+        </main>
+
+
+        <footer class="footer"></footer>
+
+
+        <!-- Bootstrap JS file
+        <script href="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        -->
+
+    </body>
+</html>
